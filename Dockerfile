@@ -20,7 +20,7 @@ RUN ARCH=$(uname -m) && \
 
 FROM alpine:latest
 
-RUN apk add --no-cache ca-certificates tzdata && \
+RUN apk add --no-cache ca-certificates tzdata bash just && \
     update-ca-certificates && \
     adduser -DH -g "" -u 1000 runner
 
