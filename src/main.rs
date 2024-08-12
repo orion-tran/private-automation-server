@@ -12,19 +12,19 @@ use web::start_web;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    dotenv().ok();
+  dotenv().ok();
 
-    tracing_subscriber::fmt::init();
-    std::panic::set_hook(Box::new(panic_hook));
+  tracing_subscriber::fmt::init();
+  std::panic::set_hook(Box::new(panic_hook));
 
-    let config = load_config().await?;
+  let config = load_config().await?;
 
-    info!("version {}", env!("CARGO_PKG_VERSION"));
-    info!(
-        arch = env::consts::ARCH,
-        family = env::consts::FAMILY,
-        os = env::consts::OS,
-    );
+  info!("version {}", env!("CARGO_PKG_VERSION"));
+  info!(
+    arch = env::consts::ARCH,
+    family = env::consts::FAMILY,
+    os = env::consts::OS,
+  );
 
-    start_web(config).await
+  start_web(config).await
 }
