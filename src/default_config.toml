@@ -1,0 +1,27 @@
+# private-automation-server
+# config.toml
+
+[web]
+# control what host the web server will bind on
+host = "0.0.0.0:3000"
+
+# whether to enable the frontend
+frontend = true
+
+# override the place files are served from
+# directory = "/path/to/your/files"
+
+[build]
+# enabled build backends
+backends = ["just", "bash"]
+
+# where the docker host is located
+# (if you don't use docker to build, this is ignored)
+docker_host = "unix:///var/run/docker.sock"
+
+[database]
+# where the database is located
+path = "/data/database.db"
+
+# enable write-ahead logging
+wal = true
